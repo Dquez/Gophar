@@ -141,8 +141,8 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
-				<Route exact path="/upload-destinations" component={UploadDestination} />
-				<Route exact path="/my-destinations" component={Destinations} /> 
+				{/* <Route exact path="/upload-destinations" component={UploadDestination} />
+				<Route exact path="/my-destinations" component={Destinations} />  */}
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 		)

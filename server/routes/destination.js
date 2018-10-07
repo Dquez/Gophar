@@ -5,7 +5,7 @@ const destinationsController = require("../controllers/destinationsController");
 router.route("/mydestinations")
   .get(destinationsController.findAll)
   .post(destinationsController.create);
-
+console.log("routes");
 // Matches with "/api/books/:id"
 router
   .route("/:id")
