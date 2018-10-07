@@ -33,7 +33,7 @@
 		"eject": "react-scripts eject",
 		"client": "cd client && npm run start",
 		"install": "cd client && yarn install",
-		"dev": "concurrently \"react-scripts start\" \"nodemon server/server.js\"",
+		"dev": "concurrently \"cd client && react-scripts start\" \"nodemon server/server.js\"",
 		"prod": "export NODE_ENV=\"production\" && nodemon server/server.js",
 		"heroku-postbuild": "npm run build"
 	},
