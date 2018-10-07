@@ -6,6 +6,8 @@ import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
+import UploadDestination from './components/UploadDestination'
+import Destinations from './components/Destinations'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -15,6 +17,16 @@ const DisplayLinks = props => {
 					<li className="nav-item">
 						<Link to="/" className="nav-link">
 							Home
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link to="/upload-destinations" className="nav-link">
+							Upload photos
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link to="/my-destinations" className="nav-link">
+							My destinations
 						</Link>
 					</li>
 					<li>
@@ -113,7 +125,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>This is the main App component</h1>
 				<Header user={this.state.user} />
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
@@ -130,6 +141,8 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
+				<Route exact path="/upload-destinations" component={UploadDestination} />
+				<Route exact path="/my-destinations" component={Destinations} /> 
 				{/* <LoginForm _login={this._login} /> */}
 			</div>
 		)
