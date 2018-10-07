@@ -25,7 +25,9 @@ export default {
                             responseConcepts[concept.name] = concept.value
                         }
                     });
-                });
+                }).catch(err=>{
+                    throw err;
+                })
                
         });
         axios.post("/concepts", responseConcepts).then(data=> {

@@ -1,6 +1,6 @@
 import React from "react";
 import API from "./API";
-import axios from 'axios';
+
 
 const UploadDestination = props => {
   const myFunc = () => {
