@@ -26,8 +26,9 @@ export default {
                         }
                     });
                 });
-                console.log(responseConcepts);
-                
+                axios.post("/concepts", responseConcepts), data=> {
+                    console.log(data);
+                }
             },
             function (err) {
                 console.error(err);
