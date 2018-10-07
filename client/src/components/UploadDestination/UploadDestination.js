@@ -15,11 +15,11 @@ const UploadDestination = props => {
           </label>
             <div className="col-md-6">
               <span className="btn btn-default btn-file">
-                <input onChange={myFunc} id="input-2" name="input2[]" type="file" className="file" multiple data-show-upload="true" data-show-caption="true" />
+                <input id="input-2" name="input2[]" type="file" className="file" multiple data-show-upload="true" data-show-caption="true" />
               </span>
             </div>
             <div className="col-md-3">
-              <button type="submit" className="btn btn-md btn-primary mb-2">
+              <button onClick={myFunc} type="submit" className="btn btn-md btn-primary mb-2">
                   Submit
               </button>
           </div>
