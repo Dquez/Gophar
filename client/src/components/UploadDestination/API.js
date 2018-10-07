@@ -4,18 +4,26 @@ const Clarifai = require('clarifai');
 
 const app = new Clarifai.App({
     apiKey: APIKEY
-   });
+});
 
-axios.post("/upload", images=> {
-    console.log(images, "IN API");
-    // predict the contents of an image by passing in a url
-    app.models.predict('eee28c313d69466f836ab83287a54ed9', 'https://clarifai.com/cms-assets/20180308185817/travel.jpg').then(
-    function(response) {
-      console.log(response);
-    },
-    function(err) {
-      console.error(err);
+export default {
+    postImages(images) {
+        // return axios.post("/upload", images=> { 
+        // predict the contents of an image by passing in a url
+        // console.log(image[0].name);
+        const imagesArr = images.split(",");
+        app.models.predict('eee28c313d69466f836ab83287a54ed9', imagesArr).then(
+            function (response) {
+                console.log(response);
+            },
+            function (err) {
+                console.error(err);
+            }
+            );
     }
-  );
-})
+    // );
 
+};
+
+
+// }
