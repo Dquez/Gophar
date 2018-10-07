@@ -3,8 +3,10 @@ import API from "./API";
 
 const UploadDestination = props => {
   const myFunc = () => {
-    alert("hello");
+    const images = document.getElementById('input-2')
+    console.log(images.files);
   }
+
   return (
     <div className="container">
       <div className="row">
@@ -13,7 +15,7 @@ const UploadDestination = props => {
           </label>
             <div className="col-md-6">
               <span className="btn btn-default btn-file">
-                <input id="input-2" name="input2[]" type="file" className="file" multiple data-show-upload="true" data-show-caption="true" />                             
+                <input onChange={myFunc} id="input-2" name="input2[]" type="file" className="file" multiple data-show-upload="true" data-show-caption="true" />
               </span>
             </div>
             <div className="col-md-3">
