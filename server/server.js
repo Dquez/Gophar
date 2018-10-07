@@ -14,6 +14,7 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const passport = require('./passport')
 const app = express()
 const PORT = process.env.PORT || 8080
+const destinationsController = require("./controllers/destinationsController")
 
 // ===== Middleware ====
 app.use(morgan('dev'))
@@ -77,6 +78,22 @@ app.use(function(err, req, res, next) {
 	console.error(err.stack)
 	res.status(500)
 })
+
+
+app.use('/concepts', (req, res, next) => {
+	// app.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=new+york+city+point+of+interest&language=en&key=${process.env.GOOGLEAPIKEY}`, (data)=> {
+	// 	console.log(data);
+	// })
+	const userId = req.user._id; 
+	const userConcepts = {userId, ...req.body};
+	// console.log(userConcepts);
+	destinationsController.create(userConcepts);
+	
+	// return res.body
+})
+// router.route(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=new+york+city+point+of+interest&language=en&key=${process.env.GOOGLEAPIKEY}`, (data)=> {
+	// console.log(data);
+// })
 
 // ==== Starting Server =====
 app.listen(PORT, () => {

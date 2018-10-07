@@ -14,9 +14,9 @@ export default {
         let responseConcepts = {};
         const imagesArr = images.replace(" ", "").split(",");
         app.models.predict('eee28c313d69466f836ab83287a54ed9', imagesArr).then(responses => {
-                console.log(responses.outputs, 1);
-                responses.outputs.forEach(response =>{
-                    const nextTripParams = response.data.concepts.filter(concept=> {
+                console.log(responses.outputs);
+                responses.outputs.forEach(output =>{
+                    const nextTripParams = output.data.concepts.filter(concept=> {
                         return concept.value > 0.3;
                     });
                     nextTripParams.forEach(concept=>{
@@ -26,18 +26,15 @@ export default {
                         }
                     });
                 });
-                axios.post("/concepts", responseConcepts), data=> {
-                    console.log(data);
-                }
-            },
-            function (err) {
-                console.error(err);
-            }
-            );
+               
+        });
+        axios.post("/concepts", responseConcepts).then(data=> {
+            return data;
+        }),
+        function (err) {
+            console.error(err);
+        }
+            
     }
-    // );
-
 };
 
-
-// }
