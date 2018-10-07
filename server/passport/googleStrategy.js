@@ -5,7 +5,7 @@ const strategy = new GoogleStrategy(
 	{
 		clientID: process.env.clientID,
 		clientSecret: process.env.clientSecret,
-		callbackURL: 'https://gophar.herokuapp.com/auth/google/callback' || 'http://localhost:8080/auth/google/callback'
+		callbackURL: '/auth/google/callback'
 
 	},
 	function(token, tokenSecret, profile, done) {
