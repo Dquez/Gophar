@@ -1,11 +1,13 @@
 import React from "react";
 
-export const List = ({ children }) => {
+const List = ({ children }) => {
   return (
     <div className="list-overflow-container">
       <ul className="list-group">
-        {children} HELLO?!?!
+         HELLO?!?!
       </ul>
     </div>
   );
 };
+
+export default List;
