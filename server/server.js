@@ -80,16 +80,17 @@ app.use(function(err, req, res, next) {
 })
 
 
-app.post('/concepts', (req, res, next) => {
+app.use('/concepts', (req, res, next) => {
 	// app.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=new+york+city+point+of+interest&language=en&key=${process.env.GOOGLEAPIKEY}`, (data)=> {
 	// 	console.log(data);
 	// })
+	console.log(req.body);
 	const userId = req.user._id; 
 	const userConcepts = {userId, ...req.body};
-	console.log(userConcepts);
+
 	// destinationsController.create(userConcepts);
 	
-	return res.userConcepts
+	return res.send(userConcepts)
 })
 // router.route(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=new+york+city+point+of+interest&language=en&key=${process.env.GOOGLEAPIKEY}`, (data)=> {
 	// console.log(data);

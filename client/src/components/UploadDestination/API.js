@@ -25,18 +25,15 @@ export default {
                             responseConcepts[concept.name] = concept.value
                         }
                     });
-                }).catch(err=>{
-                    throw err;
                 })
-               
-        });
-        axios.post("/concepts", responseConcepts).then(data=> {
-            return data;
-        }),
+                axios.post("/concepts", responseConcepts).then(data=> {
+                    console.log(data);
+                }),
+
         function (err) {
             console.error(err);
         }
-            
+    });     
     }
 };
 
